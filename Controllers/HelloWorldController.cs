@@ -19,14 +19,19 @@ namespace BasicAPI.Controllers
         [HttpGet]
         public string SayHello(string who)
         {
-            string whoOrWorld;
-
+            //string whoOrWorld;
             //if the parameter happens to be left blank by the requester, then have a default "World" as greeting
-            if (who == null)
-            {
-                whoOrWorld = "World";
-            }
-            else { whoOrWorld = who; }
+            // if (who == null)
+            // {
+            //     whoOrWorld = "World";
+            // }
+            // else
+            // {
+            //     whoOrWorld = who;
+            // }
+
+            //A better way to write it would be:
+            string whoOrWorld = (who == null) ? "World" : who;
 
             return $"Hello, {whoOrWorld}. The current time and date is {DateTime.Now}";
         }
