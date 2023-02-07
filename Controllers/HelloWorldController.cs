@@ -13,13 +13,22 @@ namespace BasicAPI.Controllers
     [ApiController]
     public class HelloWorldController : ControllerBase
     {
-        //The name of the method is simply a variable name..
+        //The name of the method is simply a variable name..This will be our first request handler!
         //VERB specific what do want to do. We name it for the sake of programmers to understand easily.
         //The last thing we need is to add this VERB as a [GET] request type. 
         [HttpGet]
-        public string SayHello()
+        public string SayHello(string who)
         {
-            return $"Hello, World. {DateTime.Now}";
+            string whoOrWorld;
+
+            //if the parameter happens to be left blank by the requester, then have a default "World" as greeting
+            if (who == null)
+            {
+                whoOrWorld = "World";
+            }
+            else { whoOrWorld = who; }
+
+            return $"Hello, {whoOrWorld}. The current time and date is {DateTime.Now}";
         }
     }
 }
