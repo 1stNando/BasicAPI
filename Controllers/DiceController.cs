@@ -14,7 +14,15 @@ namespace BasicAPI.Controllers
         [HttpGet]
         public int Roll(int sides)
         {
-            return 1;
+            //Make a random number generator
+            var randomNumberGenerator = new Random();
+
+            //Next(sides) would make a number between 0 and just less than sides
+            //so return that number + 1. Making the range from 1 to a number
+            //INCLUDING the value of sides.
+            var roll = randomNumberGenerator.Next(sides) + 1;
+
+            return roll;
         }
     }
 }
