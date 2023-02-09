@@ -11,7 +11,7 @@ namespace BasicAPI.Controllers
     [ApiController]
     public class DiceController : ControllerBase
     {
-        [HttpGet]
+        [HttpGet("{sides}")]
         //count comes from the query parameter, sides comes from the GET request URL
         //We also need to change the int data type associated with Roll() because it will 
         //no longer return a simple "int" digit. Instead it will now implement the use of a List<> to show multiple dice simultaneously rolled. 
