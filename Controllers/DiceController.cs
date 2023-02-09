@@ -15,7 +15,8 @@ namespace BasicAPI.Controllers
         //count comes from the query parameter, sides comes from the GET request URL
         //We also need to change the int data type associated with Roll() because it will 
         //no longer return a simple "int" digit. Instead it will now implement the use of a List<> to show multiple dice simultaneously rolled. 
-        public List<int> Roll(int sides, int count)
+        //default if no parameter included in URL, make count = 1. So we always will have at least one die to roll. Otherwise it would assume its of zero value. 
+        public List<int> Roll(int sides, int count = 1)
         {
             //We added int count to the parameter so we can have MANY die at the same time.
             //Make a space where the multiple "die" rolls can exist. 
